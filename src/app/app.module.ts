@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TiktokComponent } from './components/tiktok/tiktok.component';
+import { InstagramComponent } from './components/instagram/instagram.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TiktokComponent,
+    InstagramComponent
   ],
   imports: [
     BrowserModule,
