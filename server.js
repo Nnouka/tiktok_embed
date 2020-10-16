@@ -1,14 +1,14 @@
-const path = require('path');
 const express = require('express');
+const path = require('path');
 const app = express();
-const port = process.env.PORT || 3000;
 
-const publicPath = path.join(__dirname, 'build');
-app.use(express.static(publicPath));
+// Serve static files....
+app.use(express.static(__dirname + '/dist/tiktok'));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(publicPath, 'index.html'));
+// Send all requests to index.html
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/tiktok/index.html'));
 });
-app.listen(port, () => {
-    console.log(`Server is up on port ${port}!`);
-});
+
+// default Heroku PORT
+app.listen(process.env.PORT || 3000);
